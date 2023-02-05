@@ -93,6 +93,12 @@ form {
   padding: 1vw;
 }
 
+@media screen and (max-width: 850px) {
+  form {
+    width: 85vw;
+  }
+}
+
 .section2 {
   height: 70%;
   margin-bottom: 2vh;
