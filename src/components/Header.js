@@ -1,10 +1,15 @@
 import styled from "styled-components";
+import toque from "../photos/purple-toque.PNG";
 
 const Header = () => {
 return(
     // logo / title on left and hamburger dropdown on right
 <Wrapper>
-    <div>digitallytash</div>
+    <Box>
+        <Toque src={toque} alt="purple toque"/>
+        <div>digitallytash</div>
+    </Box>
+    
     {/* <div>Menu</div> */}
 </Wrapper>
 );
@@ -25,4 +30,15 @@ const Wrapper = styled.div`
     top: 0;
     z-index: 10;
     background-color: rgba(255,255,255, 0.9);
+`;
+
+const Box = styled.div`
+    display: flex;
+    align-items: center;
+`;
+
+const Toque = styled.img`
+    display: inline-block;
+    height: 5vh;
+    margin-right: 5px;
 `;
