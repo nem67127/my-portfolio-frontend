@@ -9,7 +9,7 @@ const MyWork = () => {
 
     //useEffect to fetch projects
     useEffect(()=>{
-        fetch(`${process.env.HOSTED}/projects`)
+        fetch(`https://my-portfolio-api-x0sg.onrender.com/projects`)
             .then((res) => res.json())
             .then((data) => {
                 setProjects(data.data);

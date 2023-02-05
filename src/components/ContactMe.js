@@ -11,7 +11,7 @@ const ContactMe = () => {
 
     const handleSubmit = async (e) =>{
         e.preventDefault();
-        await fetch(`${process.env.HOSTED}/send`, {
+        await fetch(`https://my-portfolio-api-x0sg.onrender.com/send`, {
             method: "POST",
             headers: {
                     "Content-type": "application/json",
