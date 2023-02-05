@@ -11,7 +11,7 @@ const ContactMe = () => {
 
     const handleSubmit = async (e) =>{
         e.preventDefault();
-        await fetch("http://localhost:8000/send", {
+        await fetch(`${process.env.HOSTED}/send`, {
             method: "POST",
             headers: {
                     "Content-type": "application/json",

@@ -9,7 +9,7 @@ const MyWork = () => {
 
     //useEffect to fetch projects
     useEffect(()=>{
-        fetch(`http://localhost:8000/projects`)
+        fetch(`${process.env.HOSTED}/projects`)
             .then((res) => res.json())
             .then((data) => {
                 setProjects(data.data);
