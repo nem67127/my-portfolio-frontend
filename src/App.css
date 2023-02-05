@@ -1,0 +1,147 @@
+/* make a color for the green and the blue and white */
+
+.App {
+  color: #334036;
+}
+
+.padded {
+  padding-top: 7vh;
+}
+
+.capital{
+  font-size: calc(20px + 2vw);
+}
+
+p {
+  font-size: calc(10px +2vw);
+}
+
+.small-section {
+  height: 20%;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+}
+
+.big-section {
+  height: 80%;
+}
+
+.flex {
+  display: flex;
+}
+
+.position {
+  position: absolute;
+}
+
+.halfsection {
+  width: 45vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+/* My Work carosel slider */
+
+
+.carousel {
+  display: flex;
+  width: 100%;
+  overflow: hidden;
+  overflow-x: scroll;
+}
+
+.inner-carousel {
+  display: inline-flex;
+}
+
+/* Conctact Me section */
+
+.section-contact {
+  height: 85vh;
+  display: flex;
+}
+
+.contact-form-display {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-left: 7.5vw;
+  height: 85vh;
+}
+
+.contact-me-background {
+  background-image: url(./photos/bluue-wave.png);
+  width: 100%;
+  height: 100%;
+  background-size: 110%;
+  background-position-x: -5vw;
+  background-position-y: 15vh;
+  background-repeat: no-repeat;
+  object-position: 60% 30%;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  width: 60vw;
+  height: 90%;
+  font-size: 20px;
+  background-color:rgba(240, 243, 244, 0.7);
+  padding: 1vw;
+}
+
+.section2 {
+  height: 70%;
+  margin-bottom: 2vh;
+}
+
+.width100 {
+  width: 100%;
+}
+
+.padding2 {
+  padding: 10px;
+}
+
+.height100 {
+  height: 98%;
+}
+
+.form-format {
+  padding: 10px;
+  margin-bottom: 2vh;
+}
+
+input {
+  border: none;
+  color:#334036;
+}
+
+button{
+  border: none;
+  background-color:rgba(90,173,125);
+  color:#334036;
+}
+
+button:hover {
+  color: rgba(240, 243, 244, 0.7);
+  background-color: rgba(90,173,125, 0.5) ;
+}
+
+textarea {
+  border: none;
+  color:#334036;
+}
+
+
+.footer {
+  min-height: 7vh;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-size: calc(5px + 1vmin);
+  justify-content: center;
+}
