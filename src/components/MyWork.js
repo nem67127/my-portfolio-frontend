@@ -14,7 +14,7 @@ const MyWork = () => {
     //useEffect to fetch projects
     useEffect(()=>{
         //change before push!!
-        fetch(`http://localhost:9000/projects`)
+        fetch(`https://my-portfolio-api-x0sg.onrender.com/projects`)
             .then((res) => res.json())
             .then((data) => {
                 setProjects(data.data);
@@ -109,7 +109,7 @@ const InfoBox = styled.div`
     justify-content: center;
     background-color: rgba(237,240,241, 0.9);
     padding: 20px;
-    border: 1px solid red;
+    /* border: 1px solid red; */
 `;
 
 const Section = styled.div`
@@ -143,10 +143,10 @@ const Link = styled.a`
     &:hover {
         color: rgba(90,173,125);
     }
-    border: 1px solid green;
+    /* border: 1px solid green; */
 `;
 
 const Info = styled.p`
-    border: 1px solid pink;
+    /* border: 1px solid pink; */
 `;
 
