@@ -14,7 +14,7 @@ const MyWork = () => {
     //useEffect to fetch projects
     useEffect(()=>{
         //change before push!!
-        fetch(`http://localhost:9000/projects`)
+        fetch(`https://my-portfolio-api-x0sg.onrender.com/projects`)
             .then((res) => res.json())
             .then((data) => {
                 setProjects(data.data);
@@ -100,8 +100,8 @@ const InfoBox = styled.div`
     visibility: hidden;
     position: absolute;
     width: 100%;
-    min-height: 25%;
-    top: 75%;
+    min-height: 35%;
+    top: 65%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -129,7 +129,7 @@ const Project = styled.div`
 `;
 
 const ImgWrapper = styled.div`
-    min-height: 80vh;
+    min-height: 40vh;
     display:flex;
     justify-content: center;
     align-items: center;
