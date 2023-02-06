@@ -5,7 +5,7 @@ const Welcome = () => {
 return (
     // create another background with only water and the mountains
     // have WELCOME rise up from behind the mountains 
-        <Wrapper>
+        <Wrapper id="welcome">
             <Rightside>
                 <Greeting>WELCOME</Greeting>
             </Rightside>
@@ -19,7 +19,8 @@ const Wrapper = styled.div`
     background-image: url(${schoenimg});
     background-size: cover;
     background-position: center center;
-    height: 90vh;
+    height: 100vh;
+    width: 100%;
 `;
 
 const Rightside = styled.div`

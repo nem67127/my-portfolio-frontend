@@ -6,7 +6,7 @@ const AboutMe = () => {
     // make background animation into ripple effect
     // make flex direction is column when screen small and width is 80%
 return(
-    <Wrapper>
+    <Wrapper id="about-me">
         <Waves></Waves>
         <Container>
             <PhotoBox>
@@ -29,8 +29,14 @@ const Wrapper = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
+    padding-top: 7vh;
+
     @media screen and (max-width: 950px){
         min-height: 70vh;
+    }
+
+    @media screen and (max-width: 450px){
+        min-height: 55vh;
     }
 `;
 
@@ -45,6 +51,10 @@ const Waves = styled.div`
 
     @media screen and (max-width: 950px){
         min-height: 90vh;
+    }
+
+    @media screen and (max-width: 950px){
+        min-height: 65vh;
     }
 `;
 
@@ -95,6 +105,7 @@ const AboutBox = styled.div`
         width: 90%;
         margin-top: 5%;
     }
+
 `;
 
 const Title = styled.h2`

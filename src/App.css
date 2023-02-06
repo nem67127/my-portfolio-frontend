@@ -21,7 +21,22 @@ p {
 }
 
 a {
-  font-size: 2vmax;
+  font-size: 1.5vmax;
+  text-decoration: none;
+  color:#334036;
+}
+
+.icon {
+  height: 100%;
+  width: 100%;
+}
+
+.icon:hover {
+  color: rgba(90,173,125);
+}
+
+div {
+  font-size: 1.5vmax;
 }
 
 .small-section {
@@ -94,7 +109,7 @@ a {
 .section-contact {
   height: 85vh;
   display: flex;
-  margin-top: 5%;
+  margin-top: 7vh;
 }
 
 .contact-form-display {

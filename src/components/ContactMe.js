@@ -35,7 +35,7 @@ const ContactMe = () => {
     }
 return(
     //have linked in and socials on there
-    <div className="section-contact">
+    <div id="contact" className="section-contact">
         <div className="contact-me-background"></div>
         <div className="contact-form-display position">
             <h2 className="capital small-section">

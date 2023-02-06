@@ -14,7 +14,7 @@ const MyWork = () => {
     //useEffect to fetch projects
     useEffect(()=>{
         //change before push!!
-        fetch(`https://my-portfolio-api-x0sg.onrender.com/projects`)
+        fetch(`http://localhost:9000/projects`)
             .then((res) => res.json())
             .then((data) => {
                 setProjects(data.data);
@@ -62,7 +62,7 @@ const MyWork = () => {
 
 return (
     // may have pop up when clicked to be bigger details or go to another page?
-    <Wrapper>
+    <Wrapper id="my-work">
         <Title>MY WORK</Title>
         <Section>
             <Slider {...settings}>
@@ -74,7 +74,7 @@ return (
                         </ImgWrapper>
                         <InfoBox>
                             <Link href={project.link} target="_blank">{project.name}</Link>
-                            <p>{project.description}</p>
+                            <Info>{project.description}</Info>
                         </InfoBox>
                     </Project>)
                 })}
@@ -90,6 +90,7 @@ const Wrapper = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding-top: 7vh;
 `;
 
 const Title = styled.h2`
@@ -105,9 +106,10 @@ const InfoBox = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    text-align: center;
-    background-color: rgba(237,240,241, 0.9);
     justify-content: center;
+    background-color: rgba(237,240,241, 0.9);
+    padding: 20px;
+    border: 1px solid red;
 `;
 
 const Section = styled.div`
@@ -141,5 +143,10 @@ const Link = styled.a`
     &:hover {
         color: rgba(90,173,125);
     }
+    border: 1px solid green;
+`;
+
+const Info = styled.p`
+    border: 1px solid pink;
 `;
 
