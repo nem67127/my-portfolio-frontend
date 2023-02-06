@@ -2,7 +2,7 @@
 import { useEffect, useState } from "react";
 import Slider from "react-slick";
 import styled from "styled-components";
-import {FaArrowRight, FaArrowLeft} from "react-icons/fa";
+import {FaArrowRight, FaArrowLeft, FaGithub, FaExternalLinkSquareAlt} from "react-icons/fa";
 
 const MyWork = () => {
 
@@ -67,13 +67,19 @@ return (
         <Section>
             <Slider {...settings}>
                 {projects.map((project, index)=>{
+
+                    const link = project.link;
+                    const github = link.includes("github");
                     return (
                     <Project key={project.name} className={index === imageIndex ? "slide activeSlide": "slide"} >
                         <ImgWrapper>
                         <img className="img-mywork" src={require(`../photos/${project.photo}`)} alt={project.name}/>
                         </ImgWrapper>
                         <InfoBox>
-                            <Link href={project.link} target="_blank">{project.name}</Link>
+                            <TopBox>
+                                <h2>{project.name}</h2>
+                                {github ? <Link href={project.link} target="_blank"><FaGithub className="icon"/></Link> : <Link href={project.link} target="_blank"><FaExternalLinkSquareAlt className="icon"/></Link> }    
+                            </TopBox>
                             <Info>{project.description}</Info>
                         </InfoBox>
                     </Project>)
@@ -112,6 +118,36 @@ const InfoBox = styled.div`
     /* border: 1px solid red; */
 `;
 
+const TopBox = styled.div`
+    display: flex;
+    align-items: center;
+
+`;
+
+const Link = styled.a`
+    position: absolute;
+    right: 5%;
+    width: 4vh;
+    height: 4vh;
+    
+    text-decoration: none;
+    color: #334036;
+
+    &:hover {
+        color: rgba(90,173,125);
+    }
+
+    @media screen and (max-width: 950px){
+        width: 3vh;
+        height: 3vh;
+    }
+    
+    @media screen and (max-width: 450px){
+        width: 2vh;
+        height: 2vh;
+    }
+`;
+
 const Section = styled.div`
     width: 80%;  
 `;
@@ -137,14 +173,6 @@ const ImgWrapper = styled.div`
     align-items: center;
 `;
 
-const Link = styled.a`
-    text-decoration: none;
-    color: #334036;
-    &:hover {
-        color: rgba(90,173,125);
-    }
-    /* border: 1px solid green; */
-`;
 
 const Info = styled.p`
     /* border: 1px solid pink; */

@@ -46,14 +46,15 @@ const Waves = styled.div`
     background-position: center center;
     width: 100%;
     min-height: 110vh;
-    margin-top: -20vh;
+    margin-top: -25vh;
     object-fit: scale-down;
 
     @media screen and (max-width: 950px){
         min-height: 90vh;
+
     }
 
-    @media screen and (max-width: 950px){
+    @media screen and (max-width: 450px){
         min-height: 65vh;
     }
 `;

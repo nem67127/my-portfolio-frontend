@@ -21,6 +21,14 @@ const Wrapper = styled.div`
     background-position: center center;
     height: 100vh;
     width: 100%;
+
+    @media screen and (max-width: 950px){
+        height: 90vh;
+    }
+    
+    @media screen and (max-width: 450px){
+        height: 70vh;
+    }
 `;
 
 const Rightside = styled.div`
