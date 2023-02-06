@@ -1,16 +1,19 @@
 import styled from "styled-components";
+import { HashLink } from "react-router-hash-link";
 import toque from "../photos/purple-toque.PNG";
 
 const Header = () => {
 return(
     // logo / title on left and hamburger dropdown on right
 <Wrapper>
-    <Box>
-        <Toque src={toque} alt="purple toque"/>
-        <div>digitallytash</div>
-    </Box>
-    
-    {/* <div>Menu</div> */}
+    <nav>
+        <Box>
+            <Toque src={toque} alt="purple toque"/>
+            <div>digitallytash</div>
+        </Box>
+       
+        
+    </nav>
 </Wrapper>
 );
 };

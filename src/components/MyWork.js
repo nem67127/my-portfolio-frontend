@@ -1,45 +1,85 @@
 
 import { useEffect, useState } from "react";
+import Slider from "react-slick";
 import styled from "styled-components";
+import {FaArrowRight, FaArrowLeft} from "react-icons/fa";
 
 const MyWork = () => {
 
     //fetch projects from MongoDB and set them inside
     const [projects, setProjects] = useState("");
+    const [status, setStatus] = useState("loading");
+    const [imageIndex, setImageIndex] = useState(0);
 
     //useEffect to fetch projects
     useEffect(()=>{
-        fetch(`https://my-portfolio-api-x0sg.onrender.com/projects`)
+        //change before push!!
+        fetch(`http://localhost:9000/projects`)
             .then((res) => res.json())
             .then((data) => {
                 setProjects(data.data);
+                setStatus("idle");
         }).catch((err)=>{
             console.log(err);
         })  
     },[])
 
-    
+    if(status === "loading") {
+        return (
+            <div>loading</div>
+        )
+    };
+
+    const NextArrow = ({onClick})=>{
+        return (
+            <div className="arrow next" onClick={onClick}>
+                <FaArrowRight/>
+            </div>
+        )
+    };
+
+    const PrevArrow = ({onClick})=>{
+        return (
+            <div className="arrow prev" onClick={onClick}>
+                <FaArrowLeft/>
+            </div>
+        )
+    }
+
+    const settings = {
+        infinite: true, 
+        lazyLoad: true,
+        speed: 300,
+        dots: true,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        centerMode: true,
+        centerPadding: 0,
+        nextArrow: <NextArrow/>,
+        prevArrow: <PrevArrow/>,
+        beforeChange: (current, next) => setImageIndex(next)
+    };
 
 return (
     // may have pop up when clicked to be bigger details or go to another page?
     <Wrapper>
         <Title>MY WORK</Title>
-        <div className="big-section carousel" >
-            <div className="inner-carousel">
-                {projects.length > 0 ? projects.map((project)=>{
+        <Section>
+            <Slider {...settings}>
+                {projects.map((project, index)=>{
                     return (
-                    <Project key={project.name}>
+                    <Project key={project.name} className={index === imageIndex ? "slide activeSlide": "slide"} >
                         <ImgWrapper>
-                        <Img className="img-mywork" src={require(`../photos/${project.photo}`)} alt={project.name}/>
+                        <img className="img-mywork" src={require(`../photos/${project.photo}`)} alt={project.name}/>
                         </ImgWrapper>
                         <InfoBox>
-                            <Link href={project.link}>{project.name}</Link>
+                            <Link href={project.link} target="_blank">{project.name}</Link>
                             <p>{project.description}</p>
                         </InfoBox>
                     </Project>)
-                }): <p>loading</p>}
-            </div>
-        </div>
+                })}
+            </Slider>
+        </Section>
     </Wrapper>
 );
 }
@@ -53,11 +93,6 @@ const Wrapper = styled.div`
 `;
 
 const Title = styled.h2`
-    font-size: calc(20px + 2vw);
-    height: 20%;
-    justify-content: center;
-    display: flex;
-    align-items: center;
     margin-bottom: 2%;
 `;
 
@@ -75,44 +110,33 @@ const InfoBox = styled.div`
     justify-content: center;
 `;
 
+const Section = styled.div`
+    width: 80%;  
+`;
+
 const Project = styled.div`
-    margin-right: 7.5vw;
-    width: 80vw;
-    height: 95%;
     background: linear-gradient(217deg, rgba(237,240,241, 0.8), rgba(187, 227, 217, 0) 70.71%),
             linear-gradient(336deg, rgba(90,173,125, 0.8), rgba(178, 203, 178, 0) 70.71%),
             linear-gradient(140deg, rgba(199,219,229, 0.8), rgba(157, 157, 167, 0) 70.71%);
-    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
-    display: flex;
-    flex-direction: column;
-    align-items: center; 
     position:relative;
-
+    display: flex;
+    justify-content: center;
+    align-items: center;
     &:hover ${InfoBox} {
     visibility: visible;
     };
 
-    &:nth-child(1) {
-        margin-left: 7.5vw;
-    }
-
 `;
 
 const ImgWrapper = styled.div`
-    height: 100%;
+    min-height: 80vh;
     display:flex;
     justify-content: center;
-`;
-
-const Img = styled.img`
-    object-fit: scale-down;
-    height: 90%;
-    align-self: center;
+    align-items: center;
 `;
 
 const Link = styled.a`
     text-decoration: none;
-    font-size: 2.5vw;
     color: #334036;
     &:hover {
         color: rgba(90,173,125);

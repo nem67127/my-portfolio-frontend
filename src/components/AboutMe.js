@@ -58,7 +58,7 @@ const PhotoBox = styled.div`
     align-items: center;
     justify-content: center;
 
-    @media screen and (max-width: 850px){
+    @media screen and (max-width: 900px){
         width: 100vw;
     }
 `;
@@ -69,7 +69,7 @@ const Photo = styled.img`
     object-fit: cover; 
     object-position: 60% 0;
 
-    @media screen and (max-width: 850px){
+    @media screen and (max-width: 900px){
         width: 80%;
         height: auto;
     }
@@ -83,16 +83,15 @@ const AboutBox = styled.div`
     align-items: center;
     justify-content: center;
 
-    @media screen and (max-width: 850px){
+    @media screen and (max-width: 900px){
         width: 90%;
     }
 `;
 
-const Title = styled.div`
-    font-size: calc(20px + 2vw);
+const Title = styled.h2`
+    
 `;
 
-const Bio = styled.div`
+const Bio = styled.p`
     text-align: center;
-    font-size: 20px;
 `;
