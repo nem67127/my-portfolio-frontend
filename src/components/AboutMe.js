@@ -25,10 +25,13 @@ return(
 export default AboutMe;
 
 const Wrapper = styled.div`
-    /* height: 85vh; */
+    min-height: 85vh;
     display: flex;
     justify-content: center;
     align-items: center;
+    @media screen and (max-width: 950px){
+        min-height: 70vh;
+    }
 `;
 
 const Waves = styled.div`
@@ -36,19 +39,24 @@ const Waves = styled.div`
     background-size: cover;
     background-position: center center;
     width: 100%;
-    height: 120vh;
-    margin-top: -25vh;
+    min-height: 110vh;
+    margin-top: -20vh;
+    object-fit: scale-down;
+
+    @media screen and (max-width: 950px){
+        min-height: 90vh;
+    }
 `;
 
 const Container = styled.div`
     position: absolute;
     display: flex;
 
-    @media screen and (max-width: 850px) {
+    @media screen and (max-width: 950px) {
         flex-direction: column;
         width: 100%;
+        justify-content: center;
         align-items: center;
-        justify-content: flex-start;
     }
 `;
 
@@ -58,7 +66,7 @@ const PhotoBox = styled.div`
     align-items: center;
     justify-content: center;
 
-    @media screen and (max-width: 900px){
+    @media screen and (max-width: 950px){
         width: 100vw;
     }
 `;
@@ -69,7 +77,7 @@ const Photo = styled.img`
     object-fit: cover; 
     object-position: 60% 0;
 
-    @media screen and (max-width: 900px){
+    @media screen and (max-width: 950px){
         width: 80%;
         height: auto;
     }
@@ -83,8 +91,9 @@ const AboutBox = styled.div`
     align-items: center;
     justify-content: center;
 
-    @media screen and (max-width: 900px){
+    @media screen and (max-width: 950px){
         width: 90%;
+        margin-top: 5%;
     }
 `;
 

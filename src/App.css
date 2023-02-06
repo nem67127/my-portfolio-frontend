@@ -126,7 +126,7 @@ form {
   padding: 1vw;
 }
 
-@media screen and (max-width: 850px) {
+@media screen and (max-width: 950px) {
   form {
     width: 85vw;
   }
