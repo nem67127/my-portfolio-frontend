@@ -1,11 +1,36 @@
 import styled from "styled-components";
 import { HashLink } from "react-router-hash-link";
+import { useState, useEffect, useRef } from "react";
 import toque from "../photos/purple-toque.PNG";
 import {HiBars3BottomRight} from "react-icons/hi2";
 
 const Header = () => {
+    const [open, setOpen] = useState(false);
+
+    let dropDownRef = useRef();
+
+    useEffect(() => {
+
+        let handler = (ev) => {
+            //clicking outside of navbar close it
+            if(dropDownRef.current && dropDownRef.current.contains(ev.target)){
+                return 
+            }
+            
+            setOpen(false);
+            
+        };
+        
+        document.addEventListener("mousedown", handler);
+        //cleanup of the event listener
+        return () => {
+            document.removeEventListener("mousedown", handler)
+            };
+
+    },[]);
+
 return(
-// will have to do ternary to change class on what to show depending on size of screen 
+
 <Wrapper>
     <HashLink to="#welcome" smooth>
         <Box>
@@ -21,9 +46,16 @@ return(
             <Link to="#my-work" smooth>My Work</Link>
             <Link to="#contact" smooth>Contact</Link>
         </NavBar>
-        <SmallNav>
-            <HiBars3BottomRight className="icon"/>
-        </SmallNav>
+        <div ref={dropDownRef}>
+            <SmallNav onClick={()=> setOpen(!open)}>
+                <HiBars3BottomRight className="icon"/>
+            </SmallNav>
+            <DropDown className={`${ open ? "active" : "inactive"}`} >
+                <DropLink  to="#about-me" smooth>About Me</DropLink>
+                <DropLink to="#my-work" smooth>My Work</DropLink>
+                <DropLink  to="#contact" smooth>Contact</DropLink>
+            </DropDown>
+        </div>  
 </Wrapper>
 );
 };
@@ -81,6 +113,8 @@ const NavBar = styled.div`
     width: 40%;
     display: flex;
     justify-content: flex-end;
+    position: absolute;
+    right: 5%;
 
     @media screen and (max-width: 950px){
         display: none;
@@ -100,13 +134,43 @@ const Link = styled(HashLink)`
 
 `;
 
-const SmallNav = styled.div`
+const SmallNav = styled.button`
     display: none;
     height: 5vh;
     width:5vh;
-
+    background-color: rgba(255,255,255, 0.9);
     @media screen and (max-width: 950px){
         display: block;
     }
     `;
 
+
+const DropDown = styled.div`
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    position: absolute;
+    right: 5%;
+    top: 7vh;
+    padding: 2%;
+    background-color: rgba(255,255,255, 0.9);
+
+    @media screen and (max-width: 450px){
+        width: 100%;
+        right: 0;
+    }
+`;
+
+const DropLink = styled(HashLink)`
+    padding: 0 2%;
+    font-size: 2rem;
+
+    &:hover {
+        color: rgba(90,173,125);
+    }
+
+    &:active {
+        color: #8980cc;
+    }
+    
+`;

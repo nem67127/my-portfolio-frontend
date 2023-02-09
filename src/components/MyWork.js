@@ -14,7 +14,7 @@ const MyWork = () => {
     //useEffect to fetch projects
     useEffect(()=>{
         //change before push!!
-        fetch(`https://my-portfolio-api-x0sg.onrender.com/projects`)
+        fetch(`http://localhost:9000/projects`)
             .then((res) => res.json())
             .then((data) => {
                 setProjects(data.data);
