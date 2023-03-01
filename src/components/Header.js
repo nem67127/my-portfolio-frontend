@@ -3,6 +3,7 @@ import { HashLink } from "react-router-hash-link";
 import { useState, useEffect, useRef } from "react";
 import toque from "../photos/purple-toque.PNG";
 import {HiBars3BottomRight} from "react-icons/hi2";
+import resume from "../documents/nmResume.pdf";
 
 const Header = () => {
     const [open, setOpen] = useState(false);
@@ -45,6 +46,7 @@ return(
             <Link to="#about-me" smooth>About Me</Link>
             <Link to="#my-work" smooth>My Work</Link>
             <Link to="#contact" smooth>Contact</Link>
+            <Pdf href={resume} target='_blank' rel='resume'>Resume</Pdf>
         </NavBar>
         <div ref={dropDownRef}>
             <SmallNav onClick={()=> setOpen(!open)}>
@@ -54,6 +56,7 @@ return(
                 <DropLink  to="#about-me" smooth>About Me</DropLink>
                 <DropLink to="#my-work" smooth>My Work</DropLink>
                 <DropLink  to="#contact" smooth>Contact</DropLink>
+                <DropPdf href={resume} target='_blank' rel='resume'>Resume</DropPdf>
             </DropDown>
         </div>  
 </Wrapper>
@@ -134,6 +137,18 @@ const Link = styled(HashLink)`
 
 `;
 
+const Pdf = styled.a`
+    margin-left: 5%;
+
+    &:hover{
+        color: rgba(90,173,125);
+    }
+
+    &:active {
+        color: #8980cc;
+    }
+`;
+
 const SmallNav = styled.button`
     display: none;
     height: 5vh;
@@ -173,4 +188,17 @@ const DropLink = styled(HashLink)`
         color: #8980cc;
     }
     
+`;
+
+const DropPdf = styled.a`
+    padding: 0 2%;
+        font-size: 2rem;
+
+        &:hover {
+            color: rgba(90,173,125);
+        }
+
+        &:active {
+            color: #8980cc;
+        }
 `;

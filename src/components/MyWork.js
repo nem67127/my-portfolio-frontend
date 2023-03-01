@@ -26,6 +26,7 @@ const MyWork = () => {
 
     if(status === "loading") {
         return (
+            //create a loading component
             <div>loading</div>
         )
     };
