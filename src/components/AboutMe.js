@@ -1,6 +1,7 @@
 import me from "../photos/me-lipa.jpeg";
 import styled from "styled-components";
 import waves from "../photos/light-waves.png";
+import { FaLinkedin, FaGithubSquare, FaInstagram } from "react-icons/fa"
 
 const AboutMe = () => {
     // make background animation into ripple effect
@@ -16,7 +17,13 @@ return(
                 <Title>ABOUT ME</Title>
                 <Bio>Hi there! I’m Natasha (Tash), a former Rehab Assistant turned Full Stack Web Developer living in beautiful Victoria, BC. I’m a lifelong learner and lover of all things creative. I spend my free time exploring nature, doodling, and crafting jewelry with my trusty pup (Lipa) at my side. Let's collaborate and create something awesome!</Bio>
                 {/* languages i know / programs i use */}
+                <Box>
+                    <Icon href="https://www.linkedin.com/in/natashamoses/" target='_blank' rel='linked-in'><LinkedIn/></Icon>
+                    <Icon href="https://github.com/nem67127" target='_blank' rel='github'><Github/></Icon>
+                    <Icon href="https://www.instagram.com/digitallytash/" target='_blank' rel='insta'><Insta/></Icon>
+                </Box>
             </AboutBox>
+            
         </Container>
     </Wrapper>
 );
@@ -115,4 +122,31 @@ const Title = styled.h2`
 
 const Bio = styled.p`
     text-align: center;
+`;
+
+const Box = styled.div`
+    display: flex;
+    align-items: center;
+    margin-top: 5%;
+    `;
+
+const Icon = styled.a`
+    margin-right: 10%;
+    min-height: 3vw;
+    min-width: 3vw;
+`;
+
+const LinkedIn = styled(FaLinkedin)`
+    width: 100%;
+    height: 100%;
+`;
+
+const Github = styled(FaGithubSquare)`
+    width: 100%;
+    height: 100%;
+`;
+
+const Insta = styled(FaInstagram)`
+    width: 100%;
+    height: 100%;
 `;
